@@ -1,0 +1,135 @@
+{
+    "meta": {
+        "version": 3,
+        "flow": "Chip",
+        "substituting_steps": {
+            "KLayout.DRC": null,
+            "Magic.DRC": null,
+            "KLayout.Filler": null,
+            "KLayout.Density": null,
+            "Checker.KLayoutDensity": null,
+
+            "KLayout.Antenna": null,
+            "Checker.KLayoutAntenna": null,
+            
+            "KLayout.SealRing": null,
+            "Checker.IllegalOverlap": null
+        }
+    },
+
+    "DESIGN_NAME": "user_project_wrapper",
+    "CLOCK_PERIOD": 10,
+    "CLOCK_PORT": "io_clock_PAD",
+    "CLOCK_NET": "io_clock_PAD/p2c",
+    "VERILOG_FILES": [
+        "dir::src/user_project_wrapper.sv"
+    ],
+
+    "FP_SIZING": "absolute",
+    "DIE_AREA": [   0.00,   0.00, 2000, 2000],
+    "CORE_AREA": [358.00, 358.00, 1642, 1642],
+    "PDN_CORE_RING": true,
+    "PDN_CORE_RING_CONNECT_TO_PADS": true,
+    "PDN_CORE_RING_VWIDTH": 15,
+    "PDN_CORE_RING_HWIDTH": 15,
+    "PDN_VPITCH": 50,
+    "PDN_HPITCH": 50,
+    "PDN_VWIDTH": 3.5,
+    "PDN_HWIDTH": 3.5,
+
+    "CTS_SINK_CLUSTERING_ENABLE": true,
+
+    "IGNORE_DISCONNECTED_MODULES": [
+        "bondpad_70x70"
+    ],
+
+    "PRIMARY_GDSII_STREAMOUT_TOOL": "klayout",
+    "KLAYOUT_CONFLICT_RESOLUTION": "SkipNewCell",
+    "MAGIC_EXT_USE_GDS": false,
+    "MAGIC_EXT_UNIQUE": "notopports",
+
+    "MAGIC_EXT_ABSTRACT_CELLS": [
+        "bondpad_70x70",
+        "sg13g2_IOPadInOut30mA",
+        "sg13g2_IOPadIn",
+        "sg13g2_IOPadOut30mA",
+        "sg13g2_IOPadIOVdd",
+        "sg13g2_IOPadIOVss",
+        "sg13g2_IOPadVss",
+        "sg13g2_IOPadVdd"
+    ],
+
+    "USE_SLANG": true,
+    "GRT_ALLOW_CONGESTION": true,
+
+    "VDD_NETS": ["VDD"],
+    "GND_NETS": ["VSS"],
+
+    "EXTRA_GDS": "dir::bondpad/bondpad_70x70.gds",
+    "EXTRA_LEFS": "dir::bondpad/bondpad_70x70.lef",
+
+    "PAD_WEST": [
+        "sg13g2_IOPadVdd_west",
+        "sg13g2_IOPadVss_west",
+        "sg13g2_IOPadIn_ui\\[0\\].ui",
+        "sg13g2_IOPadIn_ui\\[1\\].ui",
+        "sg13g2_IOPadIn_ui\\[2\\].ui",
+        "sg13g2_IOPadIn_ui\\[3\\].ui",
+        "sg13g2_IOPadIn_ui\\[4\\].ui",
+        "sg13g2_IOPadIn_ui\\[5\\].ui",
+        "sg13g2_IOPadIn_ui\\[6\\].ui",
+        "sg13g2_IOPadIn_ui\\[7\\].ui",
+        "sg13g2_IOPadIn_ui\\[8\\].ui",
+        "sg13g2_IOPadIOVdd_west",
+        "sg13g2_IOPadIOVss_west"
+    ],
+
+    "PAD_SOUTH": [
+        "sg13g2_IOPadVdd_south",
+        "sg13g2_IOPadVss_south",
+        "sg13g2_IOPadIn_ui\\[9\\].ui",
+        "sg13g2_IOPadIn_ui\\[10\\].ui",
+        "sg13g2_IOPadIn_ui\\[11\\].ui",
+        "sg13g2_IOPadIn_ui\\[12\\].ui",
+        "sg13g2_IOPadIn_ui\\[13\\].ui",
+        "sg13g2_IOPadIn_ui\\[14\\].ui",
+        "sg13g2_IOPadIn_ui\\[15\\].ui",
+        "sg13g2_IOPadIn_ui\\[16\\].ui",
+        "sg13g2_IOPad_io_clock",
+        "sg13g2_IOPadIOVdd_south",
+        "sg13g2_IOPadIOVss_south"
+    ],
+
+    "PAD_EAST": [
+        "sg13g2_IOPadVdd_east",
+        "sg13g2_IOPadVss_east",
+        "sg13g2_IOPadOut30mA_uo\\[0\\].uo",
+        "sg13g2_IOPadOut30mA_uo\\[1\\].uo",
+        "sg13g2_IOPadOut30mA_uo\\[2\\].uo",
+        "sg13g2_IOPadOut30mA_uo\\[3\\].uo",
+        "sg13g2_IOPadOut30mA_uo\\[4\\].uo",
+        "sg13g2_IOPadOut30mA_uo\\[5\\].uo",
+        "sg13g2_IOPadOut30mA_uo\\[6\\].uo",
+        "sg13g2_IOPadOut30mA_uo\\[7\\].uo",
+        "sg13g2_IOPadOut30mA_uo\\[8\\].uo",
+        "sg13g2_IOPadIOVdd_east",
+        "sg13g2_IOPadIOVss_east"
+    ],
+
+    "PAD_NORTH": [
+        "sg13g2_IOPadVdd_north",
+        "sg13g2_IOPadVss_north",
+        "sg13g2_IOPadOut30mA_uo\\[9\\].uo",
+        "sg13g2_IOPadOut30mA_uo\\[10\\].uo",
+        "sg13g2_IOPadOut30mA_uo\\[11\\].uo",
+        "sg13g2_IOPadOut30mA_uo\\[12\\].uo",
+        "sg13g2_IOPadOut30mA_uo\\[13\\].uo",
+        "sg13g2_IOPadOut30mA_uo\\[14\\].uo",
+        "sg13g2_IOPadOut30mA_uo\\[15\\].uo",
+        "sg13g2_IOPadOut30mA_uo\\[16\\].uo",
+        "sg13g2_IOPad_io_reset",
+        "sg13g2_IOPadIOVdd_north",
+        "sg13g2_IOPadIOVss_north"
+    ]
+
+}

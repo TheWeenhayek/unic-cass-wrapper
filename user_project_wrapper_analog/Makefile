@@ -6,12 +6,20 @@ PDK_ROOT = $(PROJECT_DIR)/IHP-Open-PDK
 
 CONFIG_FILE = $(PROJECT_DIR)/$(TOP)/config.json
 
+.PHONY: all
+all: librelane make_analog_padring view_results
+
 librelane: final/gds/$(TOP).gds
 .PHONY: librelane
 
 final/gds/$(TOP).gds:
 	# Run librelane to generate the layout
-	nix-shell --pure $(LIBRELANE_DIR) --run "PDK_ROOT=$(PDK_ROOT) PDK=$(PDK) librelane --run-tag $(TAG) --overwrite --manual-pdk $(CONFIG_FILE)"
+	nix-shell --pure $(LIBRELANE_DIR) --run "PDK_ROOT=$(PDK_ROOT) PDK=$(PDK) librelane --run-tag $(TAG) --overwrite --manual-pdk $(CONFIG_FILE) --to OpenROAD.GeneratePDN"
+
+.PHONY: make_analog_padring
+make_analog_padring:
+	# Create analog padring
+	nix-shell --pure $(LIBRELANE_DIR) --run "PDK_ROOT=$(PDK_ROOT) PDK=$(PDK) librelane --run-tag $(TAG)_padring --manual-pdk --from Magic.StreamOut --to Magic.SpiceExtraction --with-initial-state $(PROJECT_DIR)/$(TOP)/runs/$(TAG)/17-openroad-padring/state_out.json $(CONFIG_FILE)" 
 
 	# copy final results to top directory
 	rm -rf $(PROJECT_DIR)/$(TOP)/final
@@ -21,8 +29,3 @@ final/gds/$(TOP).gds:
 view_results: 
 	# View the results in KLayout
 	nix-shell --pure $(LIBRELANE_DIR) --run "PDK_ROOT=$(PDK_ROOT) PDK=$(PDK) librelane --last-run --manual-pdk $(CONFIG_FILE) --flow OpenInOpenROAD"
-
-.PHONY: make_analog_padring
-make_analog_padring:
-	# Create analog padring
-	nix-shell --pure $(LIBRELANE_DIR) --run "PDK_ROOT=$(PDK_ROOT) PDK=$(PDK) librelane --run-tag $(TAG)_padring --manual-pdk --from Magic.StreamOut --with-initial-state ~/shared/unic-cass-wrapper/user_project_wrapper_analog/runs/user_project_wrapper_analog_tag/17-openroad-padring/state_out.json $(CONFIG_FILE)" 

@@ -105,10 +105,11 @@ The integration strictly follows the **UNIC-CASS required interface**, without m
 The chip-level flow was executed using LibreLane with the UNIC-CASS wrapper, including floorplanning, macro placement, routing, and pad-ring integration.
 
 ---
-## 8. Final Remarks and Ongoing Work
+## 7. Final Remarks and Ongoing Work
 
 The mock tapeout process allowed the team to execute the complete digital integration flow, from RTL design to chip-level assembly using the UNIC-CASS wrapper. Throughout this process, several chip-level challenges were encountered, particularly related to power distribution and physical integration constraints.
 
 These challenges provided valuable insight into power grid design, macro integration, and system-level trade-offs in digital ASIC flows. The team is currently working on refining the power distribution strategy and layout parameters to further improve robustness and prepare the design for future iterations.
 
 Despite these challenges, the project successfully demonstrates the team’s understanding of the UNIC-CASS design methodology, the LibreLane-based flow, and the practical considerations involved in chip-level integration.
+

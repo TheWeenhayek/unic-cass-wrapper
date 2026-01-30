@@ -67,17 +67,20 @@ Key directories in this repository are organized as follows:
 │       ├── src/
 │       │   ├── pwm1.v
 │       │   └── user_project_example.v
-│       └── config.json
+│       ├── config.json
+│       └── final/              # Generated locally (gitignored)
 │
 ├── unic_cass_wrapper/
 │   ├── src/
 │   │   └── user_project_wrapper.sv
-│   └── config.json
+│   ├── config.json
+│   └── final/                  # Generated locally (gitignored)
 │
 ├── IHP-Open-PDK/
 ├── librelane/
 ├── Makefile
 └── README.md
+
 ```
 > **Note:** All `final/` directories are generated locally and excluded from version control according to the provided `.gitignore`.
 
@@ -98,6 +101,7 @@ Initialize required submodules:
 make setup
 ```
 This step fetches LibreLane, the IHP open-source PDK, and the UNIC-CASS wrapper dependencies.
+
 ---
 ## 6. Macro Hardening (PWM Controller)
 
@@ -117,6 +121,7 @@ To inspect the hardened macro layout:
 ```
 make pwm_desorption VIEW_RESULTS=1
 ```
+
 ---
 ## 7. Wrapper Integration and Chip-Level Flow
 
@@ -132,6 +137,7 @@ make
 ```
 This step performs floorplanning, pad ring integration, power distribution network generation, macro placement, routing, and manufacturability checks.
 The flow completes up to the Report Manufacturability stage.
+
 ---
 ## 8. Layout Visualization
 
@@ -143,11 +149,12 @@ klayout final/gds/user_project_wrapper.gds
 klayout unic_cass_wrapper_user_project/pwm_desorption/final/gds/user_project_example.gds
 ```
 For clarity in visualization:
-	•	Internal routing layers are used when inspecting the hardened macro
-	•	Top metal and pad ring layers are emphasized when inspecting the final mock tapeout layout
+- Internal routing layers are used when inspecting the hardened macro
+- Top metal and pad ring layers are emphasized when inspecting the final mock tapeout layout
 
 ⸻
 
 ## 9. Final Remarks
 
 The mock tapeout process required careful alignment between the hardened digital macro and the UNIC-CASS wrapper integration flow. Through iterative execution and validation, the design was successfully taken from RTL to a chip-level layout using the LibreLane/OpenROAD open-source toolchain, demonstrating a complete and functional digital implementation flow within the UNIC-CASS framework.
+

@@ -158,3 +158,25 @@ For clarity in visualization:
 
 The mock tapeout process required careful alignment between the hardened digital macro and the UNIC-CASS wrapper integration flow. Through iterative execution and validation, the design was successfully taken from RTL to a chip-level layout using the LibreLane/OpenROAD open-source toolchain, demonstrating a complete and functional digital implementation flow within the UNIC-CASS framework.
 
+---
+
+## 10. Annexes
+
+This section includes additional visual material generated during the mock tapeout process. These figures are provided for reference and to support the verification of macro hardening and chip-level integration.
+
+### Annex A – Hardened Macro Layout
+
+This figure shows the **hardened PWM macro** generated using the LibreLane flow.  
+The layout highlights internal routing and pin placement used for integration into the UNIC-CASS wrapper.
+
+![alt text](img/image.png)
+
+---
+
+### Annex B – Final Mock Tapeout Layout
+
+This figure presents the **final chip-level mock tapeout layout**, including the pad ring, global power distribution network, and the integrated digital macro placed within the core area.
+
+![alt text](img/image-1.png)
+
+---

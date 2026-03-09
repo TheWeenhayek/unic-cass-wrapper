@@ -152,15 +152,45 @@ For clarity in visualization:
 - Internal routing layers are used when inspecting the hardened macro
 - Top metal and pad ring layers are emphasized when inspecting the final mock tapeout layout
 
+---
+
+## 8. Report of the Entire Chip Flow Performed with LibreLane
+
+The following figure shows the directory structure and generated files after executing the complete Chip Flow using LibreLane. This flow performs the full digital implementation pipeline including logic synthesis, technology mapping, placement, routing, and chip-level integration with the pad ring.
+
+Additionally, the flow executes timing constraint analysis using a Synopsys Design Constraint (.sdc) file, followed by static timing analysis after place-and-route, as well as design rule checking (DRC) and layout versus schematic (LVS) verification required for manufacturability.
+
+During the execution of the flow, the error.log file reports no critical errors. The warnings found in warning.log are mainly related to missing parasitic extraction data for certain timing corners (nom_fast_1p32V_m40C and nom_slow_1p08V_125C). Another warning indicates that the variable VSRC_LOC_FILES was not defined, which may affect the accuracy of IR-drop analysis. Since this project corresponds to a mock tapeout demonstration rather than a final manufacturing-ready chip, these warnings do not affect the validity of the design and can be safely ignored.
+
+<img width="1292" height="254" alt="image" src="https://github.com/user-attachments/assets/82967441-6a0e-4dec-b728-9abe32f6c90d" />
+
 ⸻
 
-## 9. Final Remarks
+## 9. Static Timing Analysis After Place and Route
+
+After the placement and routing stages, Static Timing Analysis (STA) is performed using OpenROAD to verify that the design meets timing constraints under the defined operating conditions. This analysis evaluates signal propagation delays and timing paths within the design to ensure correct sequential behavior.
+
+<img width="1292" height="170" alt="image" src="https://github.com/user-attachments/assets/8e9db27a-d598-48f2-a9fc-02911528ee8d" />
+
+
+⸻
+
+## 10. Report for Manufacturability
+
+Finally, manufacturability checks are performed. These include verification of antenna rules, design rule checks (DRC), and layout versus schematic (LVS) validation. These checks ensure that the physical layout produced by the flow is consistent with the logical design and complies with the constraints defined by the IHP SG13G2 PDK.
+
+<img width="755" height="148" alt="image" src="https://github.com/user-attachments/assets/c569a82d-2ea1-42e7-b732-3ca956533bda" />
+
+
+⸻
+
+## 11. Final Remarks
 
 The mock tapeout process required careful alignment between the hardened digital macro and the UNIC-CASS wrapper integration flow. Through iterative execution and validation, the design was successfully taken from RTL to a chip-level layout using the LibreLane/OpenROAD open-source toolchain, demonstrating a complete and functional digital implementation flow within the UNIC-CASS framework.
 
 ---
 
-## 10. Annexes
+## 12. Annexes
 
 This section includes additional visual material generated during the mock tapeout process. These figures are provided for reference and to support the verification of macro hardening and chip-level integration.
 
@@ -178,5 +208,6 @@ The layout highlights internal routing and pin placement used for integration in
 This figure presents the **final chip-level mock tapeout layout**, including the pad ring, global power distribution network, and the integrated digital macro placed within the core area.
 
 ![alt text](img/image-1.png)
+
 
 ---
